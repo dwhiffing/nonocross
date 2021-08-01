@@ -65,6 +65,7 @@ export const WALK = {
 
     const { left, right } = entity.scene.inputService.direction
     if (left || right) {
+      entity.setOffset(left ? 2 : 3, 0)
       entity.walk(left)
     } else {
       entity.stop()

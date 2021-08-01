@@ -15,7 +15,7 @@ const game = new Phaser.Game({
   scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
   physics: {
     default: 'arcade',
-    arcade: { fps: 60, tileBias: 32, debug: false },
+    arcade: { fps: 60, tileBias: 8, debug: false },
   },
   plugins: {
     global: [{ key: 'BehaviorPlugin', plugin: BehaviorPlugin, start: true }],

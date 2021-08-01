@@ -10,11 +10,11 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     this.scene.physics.world.enable(this)
     this.scene.behavior.enable(this)
 
-    this.setSize(8, 8)
-    this.setOffset(0, 0)
+    this.setSize(4, 8)
+    this.setOffset(4, 0)
     this.setDepth(2)
     this.setAlpha(1)
-    this.body.setGravityY(400)
+    this.body.setGravityY(100)
     this.body.collideWorldBounds = true
 
     if (controlled) {
@@ -31,12 +31,5 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
         onDestroy: () => this.scene.scene.restart(),
       })
     }
-  }
-
-  clone = () => {
-    const clone = new Player(this.scene, this.x, this.y, false)
-    clone.last_frame = 0
-    clone.history = [...this.history]
-    clone.isClone = true
   }
 }
