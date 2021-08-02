@@ -17,7 +17,26 @@ export const SHOOT = {
         delay: opts.delay,
         callback: () => (entity.canShoot = true),
       })
-      // tile.layer.tilemapLayer.removeTileAt(tile.x, tile.y)
+      entity.scene.level.groundLayer.removeTileAt(
+        Math.round(entity.x / 8 + (entity.flipX ? -1 : 1)),
+        Math.round(entity.y / 8),
+      )
+      entity.scene.playSound('shoot', [8, 10])
+    }
+
+    entity.place = () => {
+      if (!entity.canShoot) return
+      entity.canShoot = false
+      entity.scene.time.addEvent({
+        delay: opts.delay,
+        callback: () => (entity.canShoot = true),
+      })
+      entity.scene.level.groundLayer.putTileAt(
+        17,
+        Math.round(entity.x / 8 + (entity.flipX ? -1 : 1)),
+        Math.round(entity.y / 8),
+        true,
+      )
 
       entity.scene.playSound('shoot', [8, 10])
     }

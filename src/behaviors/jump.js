@@ -22,7 +22,7 @@ export const JUMP = {
       entity.body?.setVelocityY(-opts.jumpHeight)
       entity.play({ key: 'jump' })
 
-      if (opts.emitter) entity.jumpEmitter.explode(20)
+      if (opts.emitter) entity.jumpEmitter.explode(3)
 
       if (opts.playSound)
         entity.scene.playSound('jump', [5, 6], { volume: 0.25 })
@@ -36,7 +36,7 @@ export const JUMP = {
 
       entity.jumpCount = opts.jumpCount
 
-      if (opts.emitter) entity.jumpEmitter.explode(20)
+      if (opts.emitter) entity.jumpEmitter.explode(6)
 
       if (opts.playSound) {
         entity.scene.playSound('hit2', [9, 10], { volume: 0.5 })
@@ -47,10 +47,7 @@ export const JUMP = {
   update(entity) {
     if (!entity.body) return
 
-    entity.jumpEmitter?.setPosition(
-      entity.x + (entity.flipX ? 2 : -2),
-      entity.y + 10,
-    )
+    entity.jumpEmitter?.setPosition(entity.x, entity.y + 4)
 
     if (entity.body?.onFloor()) {
       entity.land()
@@ -62,15 +59,15 @@ export const JUMP = {
 }
 
 const JUMP_PARTICLE_CONFIG = {
-  frame: 15,
+  frame: 17,
   x: 0,
   y: 0,
   lifespan: { min: 300, max: 900 },
-  speedX: { min: -30, max: 30 },
-  speedY: { min: -20, max: 20 },
+  speedX: { min: -10, max: 10 },
+  speedY: { min: -10, max: 10 },
   angle: { min: 0, max: 360 },
   rotate: { min: 0, max: 360 },
-  gravityY: -10,
+  gravityY: 1,
   alpha: { start: 0.5, end: 0 },
   scale: { start: 0.2, end: 0 },
 }
