@@ -38,6 +38,20 @@ export default class extends Phaser.Scene {
     })
 
     this.anims.create({
+      key: `climb`,
+      frames: [
+        { key: 'tilemap', frame: '8' },
+        { key: 'tilemap', frame: '9' },
+        { key: 'tilemap', frame: '10' },
+        { key: 'tilemap', frame: '11' },
+        { key: 'tilemap', frame: '12' },
+        { key: 'tilemap', frame: '11' },
+        { key: 'tilemap', frame: '10' },
+        { key: 'tilemap', frame: '9' },
+      ],
+    })
+
+    this.anims.create({
       key: 'jump',
       frames: [{ key: 'tilemap', frame: '1' }],
     })
