@@ -1,6 +1,7 @@
 import { Player } from '../sprites/Player'
 import { ObjectSprite } from '../sprites/Object'
 import { Enemy } from '../sprites/Enemy'
+import { Ladder } from '../sprites/Ladder'
 import { Trigger } from '../sprites/Trigger'
 import { Spike } from '../sprites/Spike'
 
@@ -28,6 +29,7 @@ export default class LevelService {
     this.playerGroup = scene.add.group()
     this.coins = scene.physics.add.group({ allowGravity: false })
     this.enemies = scene.physics.add.group()
+    this.ladders = scene.physics.add.group()
     this.triggers = scene.physics.add.group({ allowGravity: false })
     this.spikes = scene.physics.add.group({ allowGravity: false })
     this.spawners = []
@@ -55,6 +57,10 @@ export default class LevelService {
 
       if (object.type === 'enemy') {
         this.enemies.add(new Enemy(scene, object))
+      }
+
+      if (object.type === 'ladder') {
+        this.ladders.add(new Ladder(scene, object))
       }
     })
 
