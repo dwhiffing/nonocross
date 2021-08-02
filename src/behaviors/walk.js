@@ -56,6 +56,7 @@ export const WALK = {
   },
 
   update(entity, time, delta) {
+    if (!entity.scene) return
     const { x, y, flipX } = entity
 
     entity.walkEmitter?.setPosition(x + (flipX ? 2 : -2), y + 3)

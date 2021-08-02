@@ -24,13 +24,6 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
       this.behaviors.set('shoot', SHOOT)
       this.behaviors.set('climb', CLIMB)
       this.scene.cameras.main.startFollow(this, true, 1, 1, 0, 0)
-      this.behaviors.set('health', HEALTH, {
-        maxHealth: 100,
-        screenShake: true,
-        knockback: 100,
-        onHealthChange: (v) => this.scene.hud?.healthText.setText(v),
-        onDestroy: () => this.scene.scene.restart(),
-      })
     }
   }
 }

@@ -21,6 +21,8 @@ export const CLIMB = {
   },
 
   update(entity) {
+    if (!entity.scene) return
+
     entity.onLadder = false
     entity.scene.physics.overlap(entity, entity.scene.level.ladders, () => {
       entity.onLadder = true

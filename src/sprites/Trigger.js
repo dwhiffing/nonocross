@@ -19,6 +19,6 @@ export class Trigger extends Phaser.Physics.Arcade.Sprite {
     )
       return
     this.hasTriggered = true
-    this.scene.level.trigger(this.object.name)
+    // this.scene.level.trigger(this.object.name)
   }
 }

@@ -4,15 +4,20 @@ import LevelService from '../services/level'
 import Background from '../sprites/Background'
 
 export default class extends Phaser.Scene {
-  constructor() {
+  constructor(opts) {
     super({ key: 'Game' })
+  }
+
+  init(opts) {
+    this.levelKey = opts.level || 1
   }
 
   create() {
     this.behavior = this.plugins.get('BehaviorPlugin')
     this.background = new Background(this)
     this.particles = this.add.particles('tilemap')
-    this.level = new LevelService(this, 'map')
+    this.level = new LevelService(this)
+    this.level.start(`map${this.levelKey}`)
     this.inputService = new InputService(this)
     this.hud = new HudService(this)
     this.history = { player: [] }
@@ -55,6 +60,10 @@ export default class extends Phaser.Scene {
       key: 'jump',
       frames: [{ key: 'tilemap', frame: '1' }],
     })
+  }
+
+  startLevel(name) {
+    this.level.start(name)
   }
 
   playSound(key, _rate = [8, 10], opts = {}) {

@@ -1,3 +1,4 @@
+window.NUM_LEVELS = 2
 export default class extends Phaser.Scene {
   constructor() {
     super({ key: 'Boot' })
@@ -13,7 +14,9 @@ export default class extends Phaser.Scene {
       progress.fillRect(0, 0, width * value, height)
     })
 
-    this.load.tilemapTiledJSON('map', 'assets/maps/map2.json')
+    for (let i = 1; i <= window.NUM_LEVELS; i++) {
+      this.load.tilemapTiledJSON(`map${i}`, `assets/maps/map${i}.json`)
+    }
 
     this.load.audio('upgrade', 'assets/audio/upgrade.mp3', { instances: 3 })
     this.load.audio('music', 'assets/audio/music.mp3')
@@ -25,7 +28,6 @@ export default class extends Phaser.Scene {
     this.load.audio('jump', 'assets/audio/jump.mp3', { instances: 1 })
 
     this.load.image('background', 'assets/images/background.png')
-    this.load.image('title', 'assets/images/title.png')
     this.load.spritesheet('tilemap', 'assets/images/tilemap.png', {
       frameWidth: 8,
       frameHeight: 8,
@@ -39,8 +41,8 @@ export default class extends Phaser.Scene {
 
     this.load.on('complete', () => {
       progress.destroy()
-      this.scene.start('Game')
-      // this.scene.start('Menu')
+      // this.scene.start('Game')
+      this.scene.start('Menu')
       // this.sound.play('music', { loop: true, volume: 0.5 })
     })
   }

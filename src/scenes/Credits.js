@@ -12,7 +12,7 @@ export default class extends Phaser.Scene {
     this.background = new Background(this)
 
     this.add
-      .image(width - 12, height - 10, 'tilemap', 223)
+      .image(width / 2, height - 10, 'tilemap', 56)
       .setInteractive()
       .on('pointerdown', () => this.scene.start('Game'))
 

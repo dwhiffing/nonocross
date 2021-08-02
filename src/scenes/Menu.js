@@ -11,15 +11,18 @@ export default class extends Phaser.Scene {
     const { width, height } = this.cameras.main
     this.background = new Background(this)
 
-    this.add.image(width / 2, height / 2 - 10, 'title').setScale(0.5)
+    this.add
+      .bitmapText(width / 2, height / 2, 'pixel-dan', 'LR64'.toUpperCase())
+      .setFontSize(5)
+      .setOrigin(0.5, 0.5)
 
     this.add
-      .image(width / 2 - 15, height - 10, 'tilemap', 223)
+      .image(width / 2 - 15, height - 10, 'tilemap', 56)
       .setInteractive()
-      .on('pointerdown', () => this.scene.start('Game'))
+      .on('pointerdown', () => this.scene.start('Game', { level: 1 }))
 
     this.add
-      .image(width / 2 + 15, height - 10, 'tilemap', 224)
+      .image(width / 2 + 15, height - 10, 'tilemap', 57)
       .setInteractive()
       .on('pointerdown', () => this.scene.start('Credits'))
   }

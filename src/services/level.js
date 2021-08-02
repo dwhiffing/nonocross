@@ -1,17 +1,19 @@
 import { Player } from '../sprites/Player'
 import { ObjectSprite } from '../sprites/Object'
-import { Enemy } from '../sprites/Enemy'
+import { Exit } from '../sprites/Exit'
 import { Ladder } from '../sprites/Ladder'
 import { Trigger } from '../sprites/Trigger'
-import { Spike } from '../sprites/Spike'
 
 export default class LevelService {
-  constructor(scene, key) {
+  constructor(scene) {
     this.scene = scene
-    this.map = scene.make.tilemap({ key })
+  }
 
+  start(key) {
+    const scene = this.scene
+    this.map = scene.make.tilemap({ key })
     const groundTiles = this.map.addTilesetImage('tilemap')
-    this.groundLayer = this.map.createDynamicLayer('World', groundTiles, 0, 0)
+    this.groundLayer = this.map.createLayer('World', groundTiles, 0, 0)
     this.groundLayer.setCollisionByExclusion([-1])
     this.groundLayer.layer.data.forEach(function (row) {
       row.forEach(function (tile) {
@@ -23,15 +25,11 @@ export default class LevelService {
       })
     })
 
-    // const overlay = this.map.createDynamicLayer('Overlay', groundTiles, 0, 0)
-    // overlay.setDepth(99)
-
     this.playerGroup = scene.add.group()
     this.coins = scene.physics.add.group({ allowGravity: false })
-    this.enemies = scene.physics.add.group()
     this.ladders = scene.physics.add.group()
     this.triggers = scene.physics.add.group({ allowGravity: false })
-    this.spikes = scene.physics.add.group({ allowGravity: false })
+    this.exits = scene.physics.add.group({ allowGravity: false })
     this.spawners = []
 
     this.objLayer = this.map.getObjectLayer('Objects')
@@ -47,16 +45,12 @@ export default class LevelService {
         this.coins.add(new ObjectSprite(scene, object))
       }
 
-      if (object.type === 'spike') {
-        this.spikes.add(new Spike(scene, object))
-      }
-
       if (object.type === 'trigger') {
         this.triggers.add(new Trigger(scene, object))
       }
 
-      if (object.type === 'enemy') {
-        this.enemies.add(new Enemy(scene, object))
+      if (object.type === 'exit') {
+        this.exits.add(new Exit(scene, object))
       }
 
       if (object.type === 'ladder') {
@@ -65,8 +59,6 @@ export default class LevelService {
     })
 
     this.playerGroup.add(this.player)
-
-    this.pickups = [this.coins, this.triggers, this.spikes]
 
     this.width = this.map.widthInPixels
     this.height = this.map.heightInPixels
@@ -84,36 +76,15 @@ export default class LevelService {
         }
       },
     )
-    scene.physics.add.collider(this.enemies, this.groundLayer)
-    scene.physics.add.overlap(this.player, this.enemies, (player, enemy) => {
-      if (player.name === 'player') {
-        player.damage(10)
-      } else if (player.active) {
-        player.die()
-        enemy.damage(player.damageAmount || 5)
-      }
-    })
     scene.physics.add.overlap(
       this.playerGroup,
-      this.pickups,
+      [this.coins, this.triggers, this.exits],
       (player, object) => {
         object.overlap(player, () => {})
       },
     )
-
     this.scene.cameras.main.setBounds(0, 0, this.width, this.height)
   }
 
-  trigger = (name) => {
-    const triggeredSpawners = this.spawners.filter((s) =>
-      s.properties.some((p) => p.name === 'trigger' && p.value === name),
-    )
-    triggeredSpawners.forEach((s) => {
-      this.enemies.add(new Enemy(this.scene, s))
-    })
-  }
-
-  update() {
-    this.enemies.children.entries.forEach((e) => e.update.call(e))
-  }
+  update() {}
 }
