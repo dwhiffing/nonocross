@@ -17,9 +17,9 @@ export const SHOOT = {
         delay: opts.delay,
         callback: () => (entity.canShoot = true),
       })
-      entity.scene.level.groundLayer.removeTileAt(
-        Math.round(entity.x / 8 + (entity.flipX ? -1 : 1)),
-        Math.round(entity.y / 8),
+      entity.scene.level.groundLayer.removeTileAtWorldXY(
+        entity.x + (entity.flipX ? -8 : 8),
+        entity.y + 8,
       )
       entity.scene.playSound('shoot', [8, 10])
     }
@@ -31,10 +31,10 @@ export const SHOOT = {
         delay: opts.delay,
         callback: () => (entity.canShoot = true),
       })
-      entity.scene.level.groundLayer.putTileAt(
+      entity.scene.level.groundLayer.putTileAtWorldXY(
         17,
-        Math.round(entity.x / 8 + (entity.flipX ? -1 : 1)),
-        Math.round(entity.y / 8),
+        entity.x + (entity.flipX ? -8 : 8),
+        entity.y + 8,
         true,
       )
 
