@@ -17,10 +17,8 @@ export default class LevelService {
     this.groundLayer.setCollisionByExclusion([-1])
     this.groundLayer.layer.data.forEach(function (row) {
       row.forEach(function (tile) {
-        if (tile.index === 3) {
+        if (tile.index === 25) {
           tile.collideDown = false
-          tile.collideRight = false
-          tile.collideLeft = false
         }
       })
     })
@@ -69,7 +67,9 @@ export default class LevelService {
       this.player,
       this.groundLayer,
       (player, tile) => {
-        if (tile.index === 3) {
+        player.body.setAllowGravity(true)
+
+        if (tile.index === 25) {
           player.canFall = true
         } else {
           player.canFall = false

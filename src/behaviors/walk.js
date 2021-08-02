@@ -16,7 +16,7 @@ export const WALK = {
         .stop()
 
     entity.walk = (isLeft) => {
-      if (entity.tintFill) return
+      if (entity.tintFill || (!entity.body.onFloor() && entity.onLadder)) return
 
       entity.flipX = isLeft
       const speed = 30

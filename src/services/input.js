@@ -13,7 +13,10 @@ export default class InputService {
       rightReleased: () => (this.direction.right = false),
       upPressed: () => (this.direction.up = true),
       upReleased: () => (this.direction.up = false),
-      downPressed: () => (this.direction.down = true),
+      downPressed: () => {
+        player.fall()
+        this.direction.down = true
+      },
       downReleased: () => (this.direction.down = false),
       zPressed: () => player.shoot(),
       xPressed: () => player.place(),

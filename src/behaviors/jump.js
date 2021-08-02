@@ -78,11 +78,9 @@ export const FALL = {
   $create: function (entity, opts) {
     entity.fall = () => {
       if (!entity.body?.onFloor() || !entity.canFall) return
-
-      entity.body.setVelocityY(20)
       entity.scene.level.playerCollider.active = false
       entity.scene.time.addEvent({
-        delay: 400,
+        delay: 1000,
         callback: () => {
           entity.scene.level.playerCollider.active = true
         },
