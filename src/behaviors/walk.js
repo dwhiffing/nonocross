@@ -16,7 +16,7 @@ export const WALK = {
         .stop()
 
     entity.walk = (isLeft) => {
-      if (entity.tintFill || !entity.body.onFloor() || entity.onLadder) return
+      if (entity.tintFill || !entity.body.onFloor()) return
 
       entity.flipX = isLeft
       const speed = 30
@@ -25,8 +25,8 @@ export const WALK = {
 
       if (!entity.body?.onFloor()) {
         entity.walkEmitter?.stop()
-        entity.runSoundCallback?.remove()
-        entity.runSoundCallback = null
+        entity.walkSoundCallback?.remove()
+        entity.walkSoundCallback = null
         return
       }
 
@@ -36,8 +36,8 @@ export const WALK = {
 
       if (!entity.walkEmitter?.on) entity.walkEmitter?.flow(300)
 
-      if (!entity.runSoundCallback)
-        entity.runSoundCallback = entity.scene.time.addEvent({
+      if (!entity.walkSoundCallback)
+        entity.walkSoundCallback = entity.scene.time.addEvent({
           delay: 380,
           repeat: -1,
           callback: playWalkSound,
@@ -49,8 +49,8 @@ export const WALK = {
 
       entity.body.velocity.x = 0
       entity.walkEmitter?.stop()
-      entity.runSoundCallback?.remove()
-      entity.runSoundCallback = null
+      entity.walkSoundCallback?.remove()
+      entity.walkSoundCallback = null
       entity.play({ key: 'idle' })
     }
   },

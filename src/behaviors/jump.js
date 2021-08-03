@@ -15,7 +15,10 @@ export const JUMP = {
         .stop()
 
     entity.jump = () => {
-      if (entity.tintFill || entity.jumpCount === 0) return
+      if (entity.tintFill || entity.jumpCount === 0 || entity.onLadder) return
+
+      entity.walkSoundCallback?.remove()
+      entity.walkSoundCallback = null
 
       entity.body.setDamping(false)
       entity.jumpCount--
