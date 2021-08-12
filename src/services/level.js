@@ -113,6 +113,8 @@ export default class LevelService {
     if (solvedCols.every((b) => !!b) && solvedRows.every((b) => !!b)) {
       this.exits.children.entries.forEach((e) => e.activate())
     }
+
+    this.scene.hud.updateSolutionText(solvedRows, solvedCols)
   }
 
   checkAxis(direction) {

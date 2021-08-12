@@ -1,26 +1,24 @@
 export default class HudService {
   constructor(scene) {
     this.scene = scene
-    const { width, height } = this.scene.cameras.main
+  }
 
-    // this.background = this.scene.add
-    //   .graphics(0, 0)
-    //   .fillStyle(0x181425)
-    //   .fillRect(0, 0, width, 17)
-    //   .fillStyle(0x3a4466)
-    //   .fillRect(1, 1, width - 2, 15)
-    //   .fillStyle(0x181425)
-    //   .fillRect(2, 2, width - 4, 13)
-    //   .setScrollFactor(0)
+  loadSolutionText = (rows, cols) => {
+    this.rows = []
+    this.cols = []
+    for (let i = 0; i < 10; i++) {
+      this.rows.push(this.addText(2, 2 + i * 8, rows[i]).setScrollFactor(0, 1))
+    }
+    for (let i = 0; i < 10; i++) {
+      this.cols.push(this.addText(3 + i * 8, 1, cols[i]).setScrollFactor(1, 0))
+    }
+  }
 
-    // this.heartImage = this.scene.add
-    //   .image(10, 8, 'tilemap', 47)
-    //   .setScrollFactor(0)
- 
-
-    // this.healthText = this.addText(20, 6, '100')
+  updateSolutionText = (rows, cols) => {
+    this.rows.forEach((t, i) => t.setAlpha(rows[i] ? 0.1 : 1))
+    this.cols.forEach((t, i) => t.setAlpha(cols[i] ? 0.1 : 1))
   }
 
   addText = (x, y, text = '') =>
-    this.scene.add.bitmapText(x, y, 'pixel-dan', text).setScrollFactor(0)
+    this.scene.add.bitmapText(x, y, 'pixel-dan', text).setDepth(3)
 }

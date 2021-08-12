@@ -7,7 +7,7 @@ export class Exit extends Phaser.Physics.Arcade.Sprite {
     this.scene.add.existing(this)
     this.scene.physics.world.enable(this)
     this.setOffset(0)
-    this.alpha = 0.1
+    this.alpha = 0
   }
 
   activate() {
