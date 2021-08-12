@@ -63,6 +63,13 @@ export default class LevelService {
       if (object.type === 'spawn') {
         this.player = new Player(scene, object.x, object.y)
         this.playerGroup.add(this.player)
+        const inventory =
+          object.properties
+            .find((p) => p.name === 'inventory')
+            ?.value.split(' ')
+            .map((n) => +n) || []
+
+        this.player.setInventory(inventory)
       } else if (object.type === 'enemy-spawn') {
         this.spawners.push(object)
       } else if (object.type === 'coin' || object.type === 'upgrade') {

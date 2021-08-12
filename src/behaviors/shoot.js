@@ -4,49 +4,69 @@ export const SHOOT = {
     delay: 200,
   },
 
-  $create: function (entity, opts) {
-    entity.canShoot = true
-    entity.gun = entity.scene.add
-      .image(entity.x, entity.y, 'tilemap', 52)
-      .setDepth(99)
+  $create: function (ent, opts) {
+    ent.inventory = []
+    const ground = ent.scene.level.groundLayer
 
-    entity.shoot = () => {
-      if (!entity.canShoot) return
-      entity.canShoot = false
-      entity.scene.time.addEvent({
-        delay: opts.delay,
-        callback: () => (entity.canShoot = true),
+    ent.canShoot = true
+    ent.invGraphics = ent.scene.add.graphics()
+    ent.invGraphics.fillStyle(0xffffff, 1)
+
+    ent.updateInventory = () => {
+      ent.invGraphics.clear()
+      ent.inventory.forEach((a, i) => {
+        ent.invGraphics.fillStyle(0xffffff, 1)
+        ent.invGraphics.fillRect(i * 2, 0, 1, 1)
       })
-      entity.scene.level.groundLayer.putTileAtWorldXY(
-        -1,
-        entity.x + (entity.flipX ? -8 : 8),
-        entity.y + 8,
-      )
-      entity.scene.level.checkSolution()
-      entity.scene.playSound('shoot', [8, 10])
+    }
+    ent.updateInventory()
+
+    ent.setInventory = (items) => {
+      ent.inventory = items
+      ent.updateInventory()
     }
 
-    entity.place = () => {
-      if (!entity.canShoot) return
-      entity.canShoot = false
-      entity.scene.time.addEvent({
+    ent.shoot = () => {
+      if (!ent.canShoot || ent.inventory.length > 2) return
+      ent.canShoot = false
+      ent.scene.time.addEvent({
         delay: opts.delay,
-        callback: () => (entity.canShoot = true),
+        callback: () => (ent.canShoot = true),
       })
-      entity.scene.level.groundLayer.putTileAtWorldXY(
-        17,
-        entity.x + (entity.flipX ? -8 : 8),
-        entity.y + 8,
-        true,
-      )
+      const tX = ent.x + (ent.flipX ? -8 : 8)
+      const tY = ent.y + 8
+      const tile = ground.getTileAtWorldXY(tX, tY)?.index
+      ground.putTileAtWorldXY(-1, tX, tY)
 
-      entity.scene.level.checkSolution()
-      entity.scene.playSound('shoot', [8, 10])
+      ent.inventory.push(tile)
+      ent.updateInventory()
+
+      ent.scene.level.checkSolution()
+      ent.scene.playSound('shoot', [8, 10])
+    }
+
+    ent.place = () => {
+      if (!ent.canShoot || ent.inventory.length === 0) return
+      const tX = ent.x + (ent.flipX ? -8 : 8)
+      const tY = ent.y + 8
+      const tile = ground.getTileAtWorldXY(tX, tY)?.index
+      if (tile === ent.inventory[0]) return
+
+      ent.canShoot = false
+      ent.scene.time.addEvent({
+        delay: opts.delay,
+        callback: () => (ent.canShoot = true),
+      })
+      const block = ent.inventory.shift()
+      ent.updateInventory()
+      ground.putTileAtWorldXY(block, tX, tY, true)
+
+      ent.scene.level.checkSolution()
+      ent.scene.playSound('shoot', [8, 10])
     }
   },
 
-  update(entity) {
-    entity.gun.setPosition(entity.x + (entity.flipX ? -5 : 5), entity.y + 3)
-    entity.gun.flipX = entity.flipX
+  update(ent) {
+    ent.invGraphics.setPosition(ent.x + (ent.flipX ? -3 : 0), ent.y - 6)
   },
 }

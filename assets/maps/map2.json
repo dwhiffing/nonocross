@@ -5,11 +5,6 @@
         {
          "height":8,
          "width":8
-        },
-     "export":
-        {
-         "format":"json",
-         "target":"map.json"
         }
     },
  "height":10,
@@ -37,12 +32,18 @@
                  "id":383,
                  "name":"",
                  "point":true,
+                 "properties":[
+                        {
+                         "name":"inventory",
+                         "type":"string",
+                         "value":"17 17"
+                        }],
                  "rotation":0,
                  "type":"spawn",
                  "visible":true,
                  "width":0,
-                 "x":36,
-                 "y":64
+                 "x":34,
+                 "y":68
                 }, 
                 {
                  "gid":18,
@@ -61,9 +62,218 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":6,
+         "name":"Solution",
+         "objects":[
+                {
+                 "gid":66,
+                 "height":8,
+                 "id":409,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"1"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":8,
+                 "x":0,
+                 "y":0
+                }, 
+                {
+                 "gid":66,
+                 "height":8,
+                 "id":410,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"1"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":8,
+                 "x":8,
+                 "y":0
+                }, 
+                {
+                 "gid":66,
+                 "height":8,
+                 "id":411,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"2"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":8,
+                 "x":16,
+                 "y":0
+                }, 
+                {
+                 "gid":66,
+                 "height":8,
+                 "id":412,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"2"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":8,
+                 "x":24,
+                 "y":0
+                }, 
+                {
+                 "gid":66,
+                 "height":8,
+                 "id":413,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"1"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":8,
+                 "x":32,
+                 "y":0
+                }, 
+                {
+                 "gid":66,
+                 "height":8,
+                 "id":414,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"1"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":8,
+                 "x":40,
+                 "y":0
+                }, 
+                {
+                 "gid":66,
+                 "height":8,
+                 "id":415,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"1"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":8,
+                 "x":48,
+                 "y":0
+                }, 
+                {
+                 "gid":66,
+                 "height":8,
+                 "id":416,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"1"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":8,
+                 "x":56,
+                 "y":0
+                }, 
+                {
+                 "gid":66,
+                 "height":8,
+                 "id":417,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"1"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":8,
+                 "x":64,
+                 "y":0
+                }, 
+                {
+                 "gid":66,
+                 "height":8,
+                 "id":418,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"1"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":8,
+                 "x":72,
+                 "y":0
+                }, 
+                {
+                 "gid":66,
+                 "height":8,
+                 "id":420,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"data",
+                         "type":"string",
+                         "value":"10"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":8,
+                 "x":0,
+                 "y":80
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":5,
- "nextobjectid":392,
+ "nextlayerid":7,
+ "nextobjectid":423,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.1",
@@ -77,6 +287,19 @@
          "imagewidth":64,
          "margin":0,
          "name":"tilemap",
+         "spacing":0,
+         "tilecount":64,
+         "tileheight":8,
+         "tilewidth":8
+        }, 
+        {
+         "columns":8,
+         "firstgid":65,
+         "image":"..\/images\/numbers.png",
+         "imageheight":64,
+         "imagewidth":64,
+         "margin":0,
+         "name":"solution",
          "spacing":0,
          "tilecount":64,
          "tileheight":8,

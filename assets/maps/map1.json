@@ -32,6 +32,12 @@
                  "id":383,
                  "name":"",
                  "point":true,
+                 "properties":[
+                        {
+                         "name":"inventory",
+                         "type":"string",
+                         "value":"17 17"
+                        }],
                  "rotation":0,
                  "type":"spawn",
                  "visible":true,
