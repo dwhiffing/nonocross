@@ -129,7 +129,7 @@
          "name":"Solution",
          "objects":[
                 {
-                 "gid":66,
+                 "gid":58,
                  "height":8,
                  "id":409,
                  "name":"",
@@ -147,7 +147,7 @@
                  "y":0
                 }, 
                 {
-                 "gid":66,
+                 "gid":58,
                  "height":8,
                  "id":410,
                  "name":"",
@@ -165,7 +165,7 @@
                  "y":0
                 }, 
                 {
-                 "gid":66,
+                 "gid":58,
                  "height":8,
                  "id":411,
                  "name":"",
@@ -183,7 +183,7 @@
                  "y":0
                 }, 
                 {
-                 "gid":66,
+                 "gid":58,
                  "height":8,
                  "id":412,
                  "name":"",
@@ -201,7 +201,7 @@
                  "y":0
                 }, 
                 {
-                 "gid":66,
+                 "gid":58,
                  "height":8,
                  "id":413,
                  "name":"",
@@ -219,7 +219,7 @@
                  "y":0
                 }, 
                 {
-                 "gid":66,
+                 "gid":58,
                  "height":8,
                  "id":414,
                  "name":"",
@@ -237,7 +237,7 @@
                  "y":0
                 }, 
                 {
-                 "gid":66,
+                 "gid":58,
                  "height":8,
                  "id":415,
                  "name":"",
@@ -255,7 +255,7 @@
                  "y":0
                 }, 
                 {
-                 "gid":66,
+                 "gid":58,
                  "height":8,
                  "id":416,
                  "name":"",
@@ -273,7 +273,7 @@
                  "y":0
                 }, 
                 {
-                 "gid":66,
+                 "gid":58,
                  "height":8,
                  "id":417,
                  "name":"",
@@ -291,7 +291,7 @@
                  "y":0
                 }, 
                 {
-                 "gid":66,
+                 "gid":58,
                  "height":8,
                  "id":418,
                  "name":"",
@@ -309,7 +309,7 @@
                  "y":0
                 }, 
                 {
-                 "gid":66,
+                 "gid":58,
                  "height":8,
                  "id":419,
                  "name":"",
@@ -327,7 +327,7 @@
                  "y":40
                 }, 
                 {
-                 "gid":66,
+                 "gid":58,
                  "height":8,
                  "id":420,
                  "name":"",
@@ -345,7 +345,7 @@
                  "y":80
                 }, 
                 {
-                 "gid":66,
+                 "gid":58,
                  "height":8,
                  "id":422,
                  "name":"",
@@ -383,19 +383,6 @@
          "imagewidth":64,
          "margin":0,
          "name":"tilemap",
-         "spacing":0,
-         "tilecount":64,
-         "tileheight":8,
-         "tilewidth":8
-        }, 
-        {
-         "columns":8,
-         "firstgid":65,
-         "image":"..\/images\/numbers.png",
-         "imageheight":64,
-         "imagewidth":64,
-         "margin":0,
-         "name":"solution",
          "spacing":0,
          "tilecount":64,
          "tileheight":8,
