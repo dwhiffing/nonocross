@@ -7,9 +7,15 @@ export class Exit extends Phaser.Physics.Arcade.Sprite {
     this.scene.add.existing(this)
     this.scene.physics.world.enable(this)
     this.setOffset(0)
+    this.alpha = 0.1
+  }
+
+  activate() {
+    this.alpha = 1
   }
 
   overlap() {
+    if (this.alpha < 1) return
     const level = this.scene.levelKey + 1
     if (level <= window.NUM_LEVELS) {
       this.scene.scene.start('Game', { level })

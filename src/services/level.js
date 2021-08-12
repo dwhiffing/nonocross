@@ -1,3 +1,4 @@
+import { groupBy } from 'lodash'
 import { Player } from '../sprites/Player'
 import { ObjectSprite } from '../sprites/Object'
 import { Exit } from '../sprites/Exit'
@@ -12,6 +13,13 @@ export default class LevelService {
   start(key) {
     const scene = this.scene
     this.map = scene.make.tilemap({ key })
+    this.width = this.map.widthInPixels
+    this.height = this.map.heightInPixels
+    scene.physics.world.bounds.width = this.width
+    scene.physics.world.bounds.height = this.height
+    this.scene.cameras.main.setBounds(0, 0, this.width, this.height)
+
+    // load ground
     const groundTiles = this.map.addTilesetImage('tilemap')
     this.groundLayer = this.map.createLayer('World', groundTiles, 0, 0)
     this.groundLayer.setCollisionByExclusion([-1])
@@ -23,6 +31,26 @@ export default class LevelService {
       })
     })
 
+    // load solution
+    this.numLayer = this.map.getObjectLayer('Solution')
+    const def = { data: [] }
+    const solution = this.numLayer.objects.map((o) => ({
+      x: o.x / 8,
+      y: o.y / 8,
+      data: o.properties[0].value.split(' ').map((n) => +n),
+    }))
+
+    this.colSolution = new Array(10)
+      .fill('')
+      .map((n, i) => (solution.find((d) => d.x === i && d.y === 0) || def).data)
+    this.rowSolution = new Array(10)
+      .fill('')
+      .map(
+        (n, i) =>
+          (solution.find((d) => d.x === 0 && d.y === i + 1) || def).data,
+      )
+
+    // load objects
     this.playerGroup = scene.add.group()
     this.coins = scene.physics.add.group({ allowGravity: false })
     this.ladders = scene.physics.add.group()
@@ -34,35 +62,21 @@ export default class LevelService {
     this.objLayer.objects.forEach((object) => {
       if (object.type === 'spawn') {
         this.player = new Player(scene, object.x, object.y)
-      }
-      if (object.type === 'enemy-spawn') {
+        this.playerGroup.add(this.player)
+      } else if (object.type === 'enemy-spawn') {
         this.spawners.push(object)
-      }
-
-      if (object.type === 'coin' || object.type === 'upgrade') {
+      } else if (object.type === 'coin' || object.type === 'upgrade') {
         this.coins.add(new ObjectSprite(scene, object))
-      }
-
-      if (object.type === 'trigger') {
+      } else if (object.type === 'trigger') {
         this.triggers.add(new Trigger(scene, object))
-      }
-
-      if (object.type === 'exit') {
+      } else if (object.type === 'exit') {
         this.exits.add(new Exit(scene, object))
-      }
-
-      if (object.type === 'ladder') {
+      } else if (object.type === 'ladder') {
         this.ladders.add(new Ladder(scene, object))
       }
     })
 
-    this.playerGroup.add(this.player)
-
-    this.width = this.map.widthInPixels
-    this.height = this.map.heightInPixels
-
-    scene.physics.world.bounds.width = this.width
-    scene.physics.world.bounds.height = this.height
+    // init colliders
     this.playerCollider = scene.physics.add.collider(
       this.player,
       this.groundLayer,
@@ -83,7 +97,41 @@ export default class LevelService {
         object.overlap(player, () => {})
       },
     )
-    this.scene.cameras.main.setBounds(0, 0, this.width, this.height)
+  }
+
+  checkSolution() {
+    const cols = this.checkAxis('x')
+    const rows = this.checkAxis('y')
+
+    const solvedCols = cols.map(
+      (col, i) => col.join(' ') === this.colSolution[i].join(' '),
+    )
+    const solvedRows = rows.map(
+      (row, i) => row.join(' ') === this.rowSolution[i].join(' '),
+    )
+
+    if (solvedCols.every((b) => !!b) && solvedRows.every((b) => !!b)) {
+      this.exits.children.entries.forEach((e) => e.activate())
+    }
+  }
+
+  checkAxis(direction) {
+    const data = this.groundLayer.layer.data
+      .flat()
+      .map((d) => ({ x: d.x, y: d.y, index: d.index }))
+    const axis = Object.values(groupBy(data, (d) => d[direction])).map((col) =>
+      col.map((c) => c.index),
+    )
+    let result = []
+    axis.forEach((line, i) => {
+      result[i] = [0]
+      line.forEach((item) => {
+        if (item === 17) result[i][result[i].length - 1]++
+        else result[i].push(0)
+      })
+      result[i] = result[i].filter((n) => n > 0)
+    })
+    return result
   }
 
   update() {}

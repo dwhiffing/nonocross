@@ -17,10 +17,12 @@ export const SHOOT = {
         delay: opts.delay,
         callback: () => (entity.canShoot = true),
       })
-      entity.scene.level.groundLayer.removeTileAtWorldXY(
+      entity.scene.level.groundLayer.putTileAtWorldXY(
+        -1,
         entity.x + (entity.flipX ? -8 : 8),
         entity.y + 8,
       )
+      entity.scene.level.checkSolution()
       entity.scene.playSound('shoot', [8, 10])
     }
 
@@ -38,6 +40,7 @@ export const SHOOT = {
         true,
       )
 
+      entity.scene.level.checkSolution()
       entity.scene.playSound('shoot', [8, 10])
     }
   },
