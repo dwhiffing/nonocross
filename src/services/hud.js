@@ -18,8 +18,8 @@ export default class HudService {
   }
 
   updateSolutionText = (rows, cols) => {
-    this.rows.forEach((t, i) => t.setAlpha(rows[i] ? 0.1 : 1))
-    this.cols.forEach((t, i) => t.setAlpha(cols[i] ? 0.1 : 1))
+    this.rows.forEach((t, i) => t.setAlpha(rows[i] ? 0.3 : 1))
+    this.cols.forEach((t, i) => t.setAlpha(cols[i] ? 0.3 : 1))
   }
 
   toggle = () => {
