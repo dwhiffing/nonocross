@@ -8,7 +8,8 @@ export const CLIMB = {
       // line up player with ladder
       entity.onLadder = true
       entity.body.velocity.x = 0
-      entity.x = Math.floor(entity.x / 8) * 8 + entity.flipX ? 5 : 3
+      // TODO: need to line up player with ladder properly
+      // entity.x = Math.floor(entity.x / 8) * 8 + entity.flipX ? 5 : 3
       entity.body.setAllowGravity(false)
 
       entity.walkSoundCallback?.remove()
