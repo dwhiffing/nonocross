@@ -11,7 +11,7 @@
  "infinite":false,
  "layers":[
         {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 25, 17, 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 17, 17, 17, 0, 0, 0, 0, 0, 17, 0, 17, 0, 17, 0, 17, 25, 0, 0, 0, 0, 17, 17, 17, 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19],
+         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 17, 17, 0, 0, 0, 0, 25, 0, 0, 17, 0, 17, 0, 0, 25, 0, 0, 0, 0, 17, 17, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19],
          "height":11,
          "id":1,
          "name":"World",
@@ -36,14 +36,14 @@
                         {
                          "name":"inventory",
                          "type":"string",
-                         "value":"17 17"
+                         "value":"8"
                         }],
                  "rotation":0,
                  "type":"spawn",
                  "visible":true,
                  "width":0,
-                 "x":78,
-                 "y":74
+                 "x":44,
+                 "y":30
                 }, 
                 {
                  "gid":18,
@@ -120,26 +120,62 @@
                 {
                  "gid":25,
                  "height":8,
-                 "id":445,
+                 "id":447,
                  "name":"",
                  "rotation":0,
                  "type":"ladder",
                  "visible":true,
                  "width":8,
-                 "x":16,
-                 "y":40
+                 "x":8,
+                 "y":80
                 }, 
                 {
                  "gid":25,
                  "height":8,
-                 "id":446,
+                 "id":448,
                  "name":"",
                  "rotation":0,
                  "type":"ladder",
                  "visible":true,
                  "width":8,
-                 "x":16,
-                 "y":32
+                 "x":8,
+                 "y":72
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":449,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":8,
+                 "y":64
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":450,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":8,
+                 "y":56
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":451,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":8,
+                 "y":48
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -537,7 +573,7 @@
          "y":0
         }],
  "nextlayerid":7,
- "nextobjectid":447,
+ "nextobjectid":452,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.1",

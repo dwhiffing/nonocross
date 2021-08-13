@@ -36,7 +36,7 @@
                         {
                          "name":"inventory",
                          "type":"string",
-                         "value":"17 17"
+                         "value":"2"
                         }],
                  "rotation":0,
                  "type":"spawn",
@@ -323,7 +323,7 @@
                  "type":"",
                  "visible":true,
                  "width":8,
-                 "x":0,
+                 "x":-8,
                  "y":40
                 }, 
                 {
@@ -341,7 +341,7 @@
                  "type":"",
                  "visible":true,
                  "width":8,
-                 "x":0,
+                 "x":-8,
                  "y":80
                 }, 
                 {
@@ -359,7 +359,7 @@
                  "type":"",
                  "visible":true,
                  "width":8,
-                 "x":0,
+                 "x":-8,
                  "y":72
                 }],
          "opacity":1,

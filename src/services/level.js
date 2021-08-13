@@ -63,11 +63,11 @@ export default class LevelService {
       if (object.type === 'spawn') {
         this.player = new Player(scene, object.x, object.y)
         this.playerGroup.add(this.player)
-        const inventory =
-          object.properties
-            .find((p) => p.name === 'inventory')
-            ?.value.split(' ')
-            .map((n) => +n) || []
+        const startingInv =
+          Number(
+            object.properties.find((p) => p.name === 'inventory')?.value,
+          ) || 0
+        const inventory = new Array(startingInv).fill('').map(() => 17)
 
         this.player.setInventory(inventory)
       } else if (object.type === 'enemy-spawn') {
@@ -117,9 +117,9 @@ export default class LevelService {
       (row, i) => row.join(' ') === this.rowSolution[i].join(' '),
     )
 
-    if (solvedCols.every((b) => !!b) && solvedRows.every((b) => !!b)) {
-      this.exits.children.entries.forEach((e) => e.activate())
-    }
+    const isSolved =
+      solvedCols.every((b) => !!b) && solvedRows.every((b) => !!b)
+    this.exits.children.entries.forEach((e) => e.toggle(isSolved))
 
     this.scene.hud.updateSolutionText(solvedRows, solvedCols)
   }
