@@ -10,8 +10,8 @@ export class Exit extends Phaser.Physics.Arcade.Sprite {
     this.alpha = 0
   }
 
-  activate() {
-    this.alpha = 1
+  toggle(isSolved) {
+    this.alpha = isSolved ? 1 : 0
   }
 
   overlap() {
