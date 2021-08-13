@@ -33,7 +33,7 @@ export default class LevelService {
 
     // load solution
     this.numLayer = this.map.getObjectLayer('Solution')
-    const def = { data: [] }
+    const def = { data: [0] }
     const solution = this.numLayer.objects.map((o) => ({
       x: o.x / 8,
       y: o.y / 8,
@@ -42,17 +42,12 @@ export default class LevelService {
 
     this.colSolution = new Array(this.map.width)
       .fill('')
-      .map((n, i) =>
-        (solution.find((d) => d.x === i && d.y === 0) || def).data.filter(
-          (n) => n > 0,
-        ),
-      )
+      .map((n, i) => (solution.find((d) => d.x === i && d.y === 0) || def).data)
     this.rowSolution = new Array(this.map.height)
       .fill('')
-      .map((n, i) =>
-        (solution.find((d) => d.x === -1 && d.y === i + 1) || def).data.filter(
-          (n) => n > 0,
-        ),
+      .map(
+        (n, i) =>
+          (solution.find((d) => d.x === -1 && d.y === i + 1) || def).data,
       )
 
     // load objects
@@ -143,7 +138,8 @@ export default class LevelService {
         if (item === 17) result[i][result[i].length - 1]++
         else result[i].push(0)
       })
-      result[i] = result[i].filter((n) => n > 0)
+      if (result[i].every((r) => r === 0)) result[i] = [0]
+      else result[i] = result[i].filter((r) => r > 0)
     })
     return result
   }
