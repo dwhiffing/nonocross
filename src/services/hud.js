@@ -6,17 +6,31 @@ export default class HudService {
   loadSolutionText = (rows, cols) => {
     this.rows = []
     this.cols = []
-    for (let i = 0; i < 10; i++) {
-      this.rows.push(this.addText(2, 2 + i * 8, rows[i]).setScrollFactor(0, 1))
-    }
-    for (let i = 0; i < 10; i++) {
-      this.cols.push(this.addText(3 + i * 8, 1, cols[i]).setScrollFactor(1, 0))
-    }
+    rows.forEach((item, i) =>
+      this.rows.push(
+        this.addText(2, 2 + i * 8, item.join(' ')).setScrollFactor(0, 1),
+      ),
+    )
+    cols.forEach((item, i) =>
+      this.cols.push(this.addText(3 + i * 8, 1, item).setScrollFactor(1, 0)),
+    )
+    this.toggle()
   }
 
   updateSolutionText = (rows, cols) => {
     this.rows.forEach((t, i) => t.setAlpha(rows[i] ? 0.1 : 1))
     this.cols.forEach((t, i) => t.setAlpha(cols[i] ? 0.1 : 1))
+  }
+
+  toggle = () => {
+    this.activeAxis = this.activeAxis ? 0 : 1
+    if (this.activeAxis) {
+      this.rows.forEach((t, i) => t.setDepth(-1))
+      this.cols.forEach((t, i) => t.setDepth(3))
+    } else {
+      this.rows.forEach((t, i) => t.setDepth(3))
+      this.cols.forEach((t, i) => t.setDepth(-1))
+    }
   }
 
   addText = (x, y, text = '') =>
