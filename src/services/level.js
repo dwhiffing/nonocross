@@ -40,14 +40,19 @@ export default class LevelService {
       data: o.properties[0].value.split(' ').map((n) => +n),
     }))
 
-    this.colSolution = new Array(10)
+    this.colSolution = new Array(this.map.width)
       .fill('')
-      .map((n, i) => (solution.find((d) => d.x === i && d.y === 0) || def).data)
-    this.rowSolution = new Array(10)
+      .map((n, i) =>
+        (solution.find((d) => d.x === i && d.y === 0) || def).data.filter(
+          (n) => n > 0,
+        ),
+      )
+    this.rowSolution = new Array(this.map.height)
       .fill('')
-      .map(
-        (n, i) =>
-          (solution.find((d) => d.x === 0 && d.y === i + 1) || def).data,
+      .map((n, i) =>
+        (solution.find((d) => d.x === -1 && d.y === i + 1) || def).data.filter(
+          (n) => n > 0,
+        ),
       )
 
     // load objects
