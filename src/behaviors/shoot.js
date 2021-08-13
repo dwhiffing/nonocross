@@ -1,7 +1,9 @@
+// TODO: need the player to be able to aim by holding down the button, pressing a combo of directions and releasing
 export const SHOOT = {
   options: {
     poolSize: 10,
     delay: 200,
+    maxSize: 15,
   },
 
   $create: function (ent, opts) {
@@ -35,11 +37,11 @@ export const SHOOT = {
     ent.cursor = ent.scene.add.sprite(0, 0, 'tilemap', 32).setOrigin(0, 0)
 
     ent.shoot = () => {
-      if (!ent.canShoot || ent.inventory.length > 2) return
+      if (!ent.canShoot || ent.inventory.length >= opts.maxSize) return
 
       const target = ent.getTargetTile()
       const tile = ground.getTileAtWorldXY(target.x, target.y)?.index
-      if (!tile) return
+      if (!tile || tile !== 17) return
 
       ent.canShoot = false
       ent.scene.time.addEvent({
