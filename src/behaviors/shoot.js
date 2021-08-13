@@ -9,6 +9,7 @@ export const SHOOT = {
   $create: function (ent, opts) {
     ent.inventory = []
     const ground = ent.scene.level.groundLayer
+    const object = ent.scene.level.objLayer
 
     ent.canShoot = true
     ent.invGraphics = ent.scene.add.graphics().setDepth(99)
@@ -29,7 +30,7 @@ export const SHOOT = {
     }
 
     ent.getTargetTile = () => {
-      const { up, down } = ent.scene.inputService.direction || {}
+      const { up, down } = ent.scene?.inputService?.direction || {}
       let y = ent.y
       let x = ent.x
       if (!up && !down) {
@@ -68,12 +69,16 @@ export const SHOOT = {
       const target = ent.getTargetTile()
       const tile = ground.getTileAtWorldXY(target.x, target.y)?.index
       const { width, height } = ent.scene.level
+      const tx = Math.floor(target.x / 8) * 8
+      const ty = Math.floor(target.y / 8) * 8
+      const isLadder = object.objects.some((o) => o.x === tx && o.y === ty)
       if (
         tile ||
         target.x > width ||
         target.y > height ||
         target.x < 0 ||
-        target.y < 0
+        target.y < 0 ||
+        isLadder
       )
         return
 
