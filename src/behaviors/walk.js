@@ -16,7 +16,8 @@ export const WALK = {
         .stop()
 
     entity.walk = (isLeft) => {
-      if (entity.tintFill) return
+      entity.pointLeft = isLeft
+      if (entity.tintFill || entity.onLadder) return
 
       if (!entity.body.onFloor() && !entity.onLadder) {
         if (entity.body.velocity.x === 0)

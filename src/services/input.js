@@ -22,8 +22,7 @@ export default class InputService {
       xPressed: () => player.place(),
       aPressed: () => this.scene.hud.toggle(),
       spacePressed: () => {
-        if (this.direction.down) player.fall()
-        else player.jump()
+        player.jump()
       },
     }
 

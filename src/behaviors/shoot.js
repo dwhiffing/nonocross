@@ -12,12 +12,12 @@ export const SHOOT = {
 
     ent.canShoot = true
     ent.invGraphics = ent.scene.add.graphics().setDepth(99)
-    ent.invGraphics.fillStyle(0xffffff, 1)
+    ent.invGraphics.fillStyle(0xa6ca38, 1)
 
     ent.updateInventory = () => {
       ent.invGraphics.clear()
       ent.inventory.forEach((a, i) => {
-        ent.invGraphics.fillStyle(0xffffff, 1)
+        ent.invGraphics.fillStyle(0xa6ca38, 1)
         ent.invGraphics.fillRect(0, i * -2, 1, 1)
       })
     }
@@ -29,8 +29,14 @@ export const SHOOT = {
     }
 
     ent.getTargetTile = () => {
-      const x = ent.x + (ent.flipX ? -9 : 8)
-      const y = ent.y + 8
+      const { up, down } = ent.scene.inputService.direction || {}
+      let y = ent.y
+      let x = ent.x
+      if (!up && !down) {
+        x = ent.x + (ent.pointLeft ? -9 : 8)
+      }
+      if (up) y = ent.y - 8
+      if (down) y = ent.y + 8
       return { x, y }
     }
 
@@ -61,7 +67,15 @@ export const SHOOT = {
       if (!ent.canShoot || ent.inventory.length === 0) return
       const target = ent.getTargetTile()
       const tile = ground.getTileAtWorldXY(target.x, target.y)?.index
-      if (tile === ent.inventory[0]) return
+      const { width, height } = ent.scene.level
+      if (
+        tile ||
+        target.x > width ||
+        target.y > height ||
+        target.x < 0 ||
+        target.y < 0
+      )
+        return
 
       ent.canShoot = false
       ent.scene.time.addEvent({
@@ -82,12 +96,13 @@ export const SHOOT = {
       Math.floor(ent.x) + (ent.flipX ? -1 : 1),
       Math.floor(ent.y) - 7,
     )
+    ent.invGraphics.setAlpha(ent.onLadder ? 0 : 1)
+
     const target = ent.getTargetTile()
     ent.cursor.setPosition(
       Math.floor(target.x / 8) * 8,
       Math.floor(target.y / 8) * 8,
     )
     ent.cursor.setAlpha(1)
-    ent.invGraphics.setAlpha(ent.onLadder ? 0 : 1)
   },
 }
