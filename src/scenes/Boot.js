@@ -30,6 +30,7 @@ export default class extends Phaser.Scene {
     this.load.audio('jump', 'assets/audio/jump.mp3', { instances: 1 })
 
     this.load.image('background', 'assets/images/background.png')
+    this.load.image('title', 'assets/images/title.png')
     this.load.spritesheet('tilemap', 'assets/images/tilemap.png', {
       frameWidth: 8,
       frameHeight: 8,
