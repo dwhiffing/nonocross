@@ -1,7 +1,7 @@
 export const JUMP = {
   options: {
-    jumpHeight: 40,
-    jumpCount: 1,
+    jumpHeight: 38,
+    jumpCount: 2,
     playSound: true,
     emitter: true,
   },

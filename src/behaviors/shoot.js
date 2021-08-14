@@ -3,7 +3,7 @@ export const SHOOT = {
   options: {
     poolSize: 10,
     delay: 200,
-    maxSize: 8,
+    maxSize: 10,
   },
 
   $create: function (ent, opts) {
