@@ -14,7 +14,7 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     this.setOffset(3, 0)
     this.setDepth(2)
     this.setAlpha(1)
-    this.body.setGravityY(50)
+    this.body.setGravityY(70)
     this.body.collideWorldBounds = true
 
     if (controlled) {
