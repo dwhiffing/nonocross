@@ -100,15 +100,16 @@ export default class LevelService {
     const cols = this.checkAxis('x')
     const rows = this.checkAxis('y')
 
-    const solvedCols = cols.map(
-      (col, i) => col.join(' ') === this.colSolution[i].join(' '),
+    const solvedCols = cols.map((col, i) =>
+      col.map((ci, j) => ci === this.colSolution[i][j]),
     )
-    const solvedRows = rows.map(
-      (row, i) => row.join(' ') === this.rowSolution[i].join(' '),
+    const solvedRows = rows.map((row, i) =>
+      row.map((ri, j) => ri === this.rowSolution[i][j]),
     )
 
     const isSolved =
-      solvedCols.every((b) => !!b) && solvedRows.every((b) => !!b)
+      solvedCols.every((col) => col.every((ci) => !!ci)) &&
+      solvedRows.every((row) => row.every((ri) => !!ri))
     this.exits.children.entries.forEach((e) => e.toggle(isSolved, playSound))
 
     this.scene.hud.updateSolutionText(solvedRows, solvedCols)
