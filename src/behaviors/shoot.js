@@ -32,9 +32,9 @@ export const SHOOT = {
     ent.getTargetTile = () => {
       const { up, down } = ent.scene?.inputService?.direction || {}
       let y = ent.y
-      let x = ent.x
+      let x = ent.x + (ent.pointLeft ? -2 : 2)
       if (!up && !down) {
-        x = ent.x + (ent.pointLeft ? -9 : 8)
+        x = ent.x + (ent.pointLeft ? -8 : 8)
       }
       if (up) y = ent.y - 8
       if (down) y = ent.y + 8

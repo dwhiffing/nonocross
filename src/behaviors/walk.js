@@ -21,12 +21,12 @@ export const WALK = {
 
       if (!entity.body.onFloor() && !entity.onLadder) {
         if (entity.body.velocity.x === 0)
-          entity.body.velocity.x = isLeft ? -15 : 15
+          entity.body.velocity.x = isLeft ? -10 : 10
         return
       }
 
       entity.flipX = isLeft
-      const speed = 30
+      const speed = 18
       entity.body.velocity.x = isLeft ? -speed : speed
       entity.body.x = Math.round((entity.body.x + Number.EPSILON) * 100) / 100
 
@@ -73,7 +73,6 @@ export const WALK = {
 
     const { left, right } = entity.scene.inputService.direction
     if (left || right) {
-      entity.setOffset(left ? 2 : 3, 0)
       entity.walk(left)
     } else {
       entity.stop()

@@ -10,11 +10,11 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     this.scene.physics.world.enable(this)
     this.scene.behavior.enable(this)
 
-    this.setSize(4, 8)
-    this.setOffset(4, 0)
+    this.setSize(2, 8)
+    this.setOffset(3, 0)
     this.setDepth(2)
     this.setAlpha(1)
-    this.body.setGravityY(100)
+    this.body.setGravityY(50)
     this.body.collideWorldBounds = true
 
     if (controlled) {
