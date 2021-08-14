@@ -19,7 +19,7 @@ export default class HudService {
     cols.forEach((item, i) =>
       this.cols.push(this.addText(3 + i * 8, 1, item).setScrollFactor(1, 0)),
     )
-    this.toggle()
+    this.toggle(false)
   }
 
   updateSolutionText = (rows, cols) => {
@@ -27,8 +27,9 @@ export default class HudService {
     this.cols.forEach((t, i) => t.setAlpha(cols[i] ? 0.3 : 1))
   }
 
-  toggle = () => {
+  toggle = (playSound = true) => {
     this.activeAxis = this.activeAxis ? 0 : 1
+    if (playSound) this.scene.sound.play('swap')
     if (this.activeAxis) {
       this.rows.forEach((t, i) => t.setDepth(-1))
       this.cols.forEach((t, i) => t.setDepth(3))

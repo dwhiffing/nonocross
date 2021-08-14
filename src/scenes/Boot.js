@@ -30,6 +30,7 @@ export default class extends Phaser.Scene {
     this.load.audio('shoot', 'assets/audio/shoot.mp3', { instances: 3 })
     this.load.audio('put', 'assets/audio/put.mp3', { instances: 3 })
     this.load.audio('jump', 'assets/audio/jump.mp3', { instances: 1 })
+    this.load.audio('swap', 'assets/audio/swap.mp3', { instances: 1 })
 
     this.load.image('background', 'assets/images/background.png')
     this.load.image('title', 'assets/images/title.png')
