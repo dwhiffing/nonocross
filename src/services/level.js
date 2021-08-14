@@ -1,9 +1,7 @@
 import { groupBy } from 'lodash'
 import { Player } from '../sprites/Player'
-import { ObjectSprite } from '../sprites/Object'
 import { Exit } from '../sprites/Exit'
 import { Ladder } from '../sprites/Ladder'
-import { Trigger } from '../sprites/Trigger'
 
 export default class LevelService {
   constructor(scene) {
@@ -53,11 +51,8 @@ export default class LevelService {
 
     // load objects
     this.playerGroup = scene.add.group()
-    this.coins = scene.physics.add.group({ allowGravity: false })
     this.ladders = scene.physics.add.group()
-    this.triggers = scene.physics.add.group({ allowGravity: false })
     this.exits = scene.physics.add.group({ allowGravity: false })
-    this.spawners = []
 
     this.objLayer = this.map.getObjectLayer('Objects')
     this.objLayer.objects.forEach((object) => {
@@ -71,12 +66,6 @@ export default class LevelService {
         const inventory = new Array(startingInv).fill('').map(() => 17)
 
         this.player.setInventory(inventory)
-      } else if (object.type === 'enemy-spawn') {
-        this.spawners.push(object)
-      } else if (object.type === 'coin' || object.type === 'upgrade') {
-        this.coins.add(new ObjectSprite(scene, object))
-      } else if (object.type === 'trigger') {
-        this.triggers.add(new Trigger(scene, object))
       } else if (object.type === 'exit') {
         this.exits.add(new Exit(scene, object))
       } else if (object.type === 'ladder') {
@@ -100,7 +89,7 @@ export default class LevelService {
     )
     scene.physics.add.overlap(
       this.playerGroup,
-      [this.coins, this.triggers, this.exits],
+      [this.exits],
       (player, object) => {
         object.overlap(player, () => {})
       },
