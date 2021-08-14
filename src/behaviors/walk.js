@@ -19,14 +19,13 @@ export const WALK = {
       entity.pointLeft = isLeft
       if (entity.tintFill || entity.onLadder) return
 
+      const speed = 18
       if (!entity.body.onFloor() && !entity.onLadder) {
-        if (entity.body.velocity.x === 0)
-          entity.body.velocity.x = isLeft ? -10 : 10
+        entity.body.velocity.x = isLeft ? -15 : 15
         return
       }
 
       entity.flipX = isLeft
-      const speed = 18
       entity.body.velocity.x = isLeft ? -speed : speed
       entity.body.x = Math.round((entity.body.x + Number.EPSILON) * 100) / 100
 
@@ -81,7 +80,7 @@ export const WALK = {
 }
 
 const WALK_PARTICLE_CONFIG = {
-  frame: 16,
+  frame: 18,
   x: 0,
   y: 0,
   lifespan: { min: 400, max: 800 },

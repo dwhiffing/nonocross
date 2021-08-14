@@ -15,11 +15,12 @@ export const JUMP = {
         .stop()
 
     entity.jump = () => {
-      if (entity.tintFill || entity.jumpCount === 0) return
       if (entity.onLadder) {
         entity.onLadder = false
+        entity.play({ key: 'jump' })
         return
       }
+      if (entity.tintFill || entity.jumpCount === 0) return
 
       entity.walkSoundCallback?.remove()
       entity.walkSoundCallback = null
@@ -66,17 +67,18 @@ export const JUMP = {
 }
 
 const JUMP_PARTICLE_CONFIG = {
-  frame: 17,
+  frame: 18,
   x: 0,
   y: 0,
-  lifespan: { min: 300, max: 900 },
+  lifespan: { min: 400, max: 800 },
   speedX: { min: -10, max: 10 },
-  speedY: { min: -10, max: 10 },
+  speedY: { min: -10, max: -2 },
   angle: { min: 0, max: 360 },
   rotate: { min: 0, max: 360 },
-  gravityY: 1,
+  gravityY: -3,
   alpha: { start: 0.5, end: 0 },
-  scale: { start: 0.2, end: 0 },
+  scale: { start: 0.3, end: 0 },
+  quantity: 1,
 }
 
 export const FALL = {

@@ -1,4 +1,4 @@
-const speed = 10
+const speed = 13
 
 export const CLIMB = {
   options: {},
