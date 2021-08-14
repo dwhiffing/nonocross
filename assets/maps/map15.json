@@ -11,7 +11,7 @@
  "infinite":false,
  "layers":[
         {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 25, 17, 17, 0, 17, 17, 0, 0, 0, 0, 0, 0, 17, 17, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 0, 17, 17, 17, 17, 17, 17, 17, 0, 0, 0, 17, 17, 17, 17, 17, 17, 17, 0, 0, 0, 17, 17, 17, 17, 17, 17, 17, 0, 0, 17, 17, 17, 17, 17, 17, 17, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19],
+         "data":[0, 0, 0, 17, 17, 17, 17, 0, 0, 0, 25, 17, 17, 17, 17, 17, 17, 17, 17, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 17, 17, 17, 17, 17, 0, 0, 0, 0, 17, 17, 17, 17, 17, 17, 0, 0, 0, 17, 17, 17, 17, 17, 17, 17, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19],
          "height":11,
          "id":1,
          "name":"World",
@@ -36,14 +36,14 @@
                         {
                          "name":"inventory",
                          "type":"string",
-                         "value":"2"
+                         "value":"7"
                         }],
                  "rotation":0,
                  "type":"spawn",
                  "visible":true,
                  "width":0,
-                 "x":10,
-                 "y":50
+                 "x":76,
+                 "y":68
                 }, 
                 {
                  "gid":18,
@@ -163,6 +163,114 @@
                  "visible":true,
                  "width":8,
                  "x":0,
+                 "y":16
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":446,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":72,
+                 "y":80
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":447,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":72,
+                 "y":72
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":448,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":72,
+                 "y":64
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":449,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":72,
+                 "y":56
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":450,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":72,
+                 "y":48
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":451,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":72,
+                 "y":40
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":452,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":72,
+                 "y":32
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":453,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":72,
+                 "y":24
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":454,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":72,
                  "y":16
                 }],
          "opacity":1,
@@ -561,7 +669,7 @@
          "y":0
         }],
  "nextlayerid":7,
- "nextobjectid":446,
+ "nextobjectid":455,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.1",
