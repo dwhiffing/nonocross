@@ -19,7 +19,9 @@ export default class extends Phaser.Scene {
     }
 
     this.load.audio('upgrade', 'assets/audio/upgrade.mp3', { instances: 3 })
-    this.load.audio('music', 'assets/audio/music.mp3')
+    this.load.audio('music1', 'assets/audio/menu-music.mp3')
+    this.load.audio('music2', 'assets/audio/game-music1.mp3')
+    this.load.audio('music3', 'assets/audio/game-music2.mp3')
     this.load.audio('pickup', 'assets/audio/pickup.mp3', { instances: 3 })
     this.load.audio('enemyDead', 'assets/audio/enemyDead.mp3', { instances: 3 })
     this.load.audio('hit2', 'assets/audio/hit2.mp3', { instances: 3 })
@@ -41,9 +43,20 @@ export default class extends Phaser.Scene {
 
     this.load.on('complete', () => {
       progress.destroy()
-      this.scene.start('Game')
-      // this.scene.start('Menu')
-      // this.sound.play('music', { loop: true, volume: 0.5 })
+      window.musicKey = 0
+      const playNext = () => {
+        window.musicKey++
+        if (musicKey > 3) musicKey = 1
+        window.music = this.sound.add(`music${window.musicKey}`, {
+          volume: 0.5,
+        })
+        window.music.play()
+        window.music.once('complete', playNext)
+      }
+      playNext()
+
+      // this.scene.start('Game')
+      this.scene.start('Menu')
     })
   }
 }

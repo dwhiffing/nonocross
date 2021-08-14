@@ -22,6 +22,7 @@ export default class InputService {
       xPressed: () => player.place(),
       cPressed: () => this.scene.hud.toggle(),
       rPressed: () => this.scene.restartLevel(),
+      mPressed: () => (this.scene.sound.mute = !this.scene.sound.mute),
       oPressed: () => this.scene.prevLevel(),
       pPressed: () => this.scene.nextLevel(),
       spacePressed: () => {
@@ -40,6 +41,7 @@ export default class InputService {
       this.rKey = this.scene.input.keyboard.addKey('R')
       this.oKey = this.scene.input.keyboard.addKey('O')
       this.pKey = this.scene.input.keyboard.addKey('P')
+      this.mKey = this.scene.input.keyboard.addKey('M')
 
       this.cursors.up.addListener('down', this.listeners.upPressed || noop)
       this.cursors.up.addListener('up', this.listeners.upReleased || noop)
@@ -54,6 +56,7 @@ export default class InputService {
       this.cursors.down.addListener('up', this.listeners.downReleased || noop)
       this.cKey.addListener('down', this.listeners.cPressed || noop)
       this.rKey.addListener('down', this.listeners.rPressed || noop)
+      this.mKey.addListener('down', this.listeners.mPressed || noop)
       this.oKey.addListener('down', this.listeners.oPressed || noop)
       this.pKey.addListener('down', this.listeners.pPressed || noop)
       this.zKey.addListener('down', this.listeners.zPressed || noop)
