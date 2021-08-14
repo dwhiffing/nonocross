@@ -1,4 +1,4 @@
-window.NUM_LEVELS = 3
+window.NUM_LEVELS = 15
 export default class extends Phaser.Scene {
   constructor() {
     super({ key: 'Boot' })

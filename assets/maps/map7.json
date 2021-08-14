@@ -11,7 +11,7 @@
  "infinite":false,
  "layers":[
         {
-         "data":[19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 0, 0, 0, 0, 19, 19, 0, 0, 0, 0, 0, 0, 0, 0, 17, 17, 0, 0, 0, 0, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19],
+         "data":[19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 17, 17, 17, 17, 17, 17, 17, 19, 19, 19, 0, 0, 0, 17, 0, 0, 0, 19, 19, 19, 25, 0, 0, 25, 0, 0, 25, 19, 19, 19, 0, 0, 0, 0, 0, 0, 0, 19, 19, 19, 0, 0, 0, 0, 0, 0, 0, 19, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19],
          "height":11,
          "id":1,
          "name":"World",
@@ -56,6 +56,186 @@
                  "width":8,
                  "x":72,
                  "y":80
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":452,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":56,
+                 "y":80
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":453,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":56,
+                 "y":72
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":454,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":56,
+                 "y":64
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":455,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":56,
+                 "y":56
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":456,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":56,
+                 "y":48
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":457,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":8,
+                 "y":48
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":458,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":8,
+                 "y":56
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":459,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":8,
+                 "y":64
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":460,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":8,
+                 "y":72
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":461,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":8,
+                 "y":80
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":462,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":32,
+                 "y":80
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":463,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":32,
+                 "y":72
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":464,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":32,
+                 "y":64
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":465,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":32,
+                 "y":56
+                }, 
+                {
+                 "gid":25,
+                 "height":8,
+                 "id":466,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ladder",
+                 "visible":true,
+                 "width":8,
+                 "x":32,
+                 "y":48
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -95,7 +275,7 @@
                         {
                          "name":"data",
                          "type":"string",
-                         "value":""
+                         "value":"1 1"
                         }],
                  "rotation":0,
                  "type":"",
@@ -113,7 +293,7 @@
                         {
                          "name":"data",
                          "type":"string",
-                         "value":""
+                         "value":"1 1"
                         }],
                  "rotation":0,
                  "type":"",
@@ -149,7 +329,7 @@
                         {
                          "name":"data",
                          "type":"string",
-                         "value":""
+                         "value":"1 1"
                         }],
                  "rotation":0,
                  "type":"",
@@ -167,7 +347,7 @@
                         {
                          "name":"data",
                          "type":"string",
-                         "value":""
+                         "value":"1 1"
                         }],
                  "rotation":0,
                  "type":"",
@@ -275,7 +455,7 @@
                         {
                          "name":"data",
                          "type":"string",
-                         "value":""
+                         "value":"1 1"
                         }],
                  "rotation":0,
                  "type":"",
@@ -293,7 +473,7 @@
                         {
                          "name":"data",
                          "type":"string",
-                         "value":""
+                         "value":"1 1"
                         }],
                  "rotation":0,
                  "type":"",
@@ -311,7 +491,7 @@
                         {
                          "name":"data",
                          "type":"string",
-                         "value":""
+                         "value":"1 1"
                         }],
                  "rotation":0,
                  "type":"",
@@ -329,7 +509,7 @@
                         {
                          "name":"data",
                          "type":"string",
-                         "value":""
+                         "value":"1 1"
                         }],
                  "rotation":0,
                  "type":"",
@@ -453,7 +633,7 @@
          "y":0
         }],
  "nextlayerid":7,
- "nextobjectid":452,
+ "nextobjectid":467,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.1",
