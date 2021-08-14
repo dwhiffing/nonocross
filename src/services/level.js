@@ -12,6 +12,7 @@ export default class LevelService {
 
   start(key) {
     const scene = this.scene
+    this.key = key
     this.map = scene.make.tilemap({ key })
     this.width = this.map.widthInPixels
     this.height = this.map.heightInPixels

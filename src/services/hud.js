@@ -1,6 +1,11 @@
 export default class HudService {
   constructor(scene) {
     this.scene = scene
+    // scene.time.addEvent({
+    //   delay: 3000,
+    //   callback: this.toggle,
+    //   loop: true,
+    // })
   }
 
   loadSolutionText = (rows, cols) => {

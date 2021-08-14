@@ -20,7 +20,10 @@ export default class InputService {
       downReleased: () => (this.direction.down = false),
       zPressed: () => player.shoot(),
       xPressed: () => player.place(),
-      aPressed: () => this.scene.hud.toggle(),
+      cPressed: () => this.scene.hud.toggle(),
+      rPressed: () => this.scene.restartLevel(),
+      oPressed: () => this.scene.prevLevel(),
+      pPressed: () => this.scene.nextLevel(),
       spacePressed: () => {
         player.jump()
       },
@@ -33,7 +36,10 @@ export default class InputService {
       this.spaceKey = this.scene.input.keyboard.addKey('SPACE')
       this.zKey = this.scene.input.keyboard.addKey('Z')
       this.xKey = this.scene.input.keyboard.addKey('X')
-      this.aKey = this.scene.input.keyboard.addKey('A')
+      this.cKey = this.scene.input.keyboard.addKey('C')
+      this.rKey = this.scene.input.keyboard.addKey('R')
+      this.oKey = this.scene.input.keyboard.addKey('O')
+      this.pKey = this.scene.input.keyboard.addKey('P')
 
       this.cursors.up.addListener('down', this.listeners.upPressed || noop)
       this.cursors.up.addListener('up', this.listeners.upReleased || noop)
@@ -46,7 +52,10 @@ export default class InputService {
       this.cursors.right.addListener('up', this.listeners.rightReleased || noop)
       this.cursors.down.addListener('down', this.listeners.downPressed || noop)
       this.cursors.down.addListener('up', this.listeners.downReleased || noop)
-      this.aKey.addListener('down', this.listeners.aPressed || noop)
+      this.cKey.addListener('down', this.listeners.cPressed || noop)
+      this.rKey.addListener('down', this.listeners.rPressed || noop)
+      this.oKey.addListener('down', this.listeners.oPressed || noop)
+      this.pKey.addListener('down', this.listeners.pPressed || noop)
       this.zKey.addListener('down', this.listeners.zPressed || noop)
       this.xKey.addListener('down', this.listeners.xPressed || noop)
       this.zKey.addListener('up', this.listeners.zReleased || noop)

@@ -68,6 +68,27 @@ export default class extends Phaser.Scene {
     this.level.start(name)
   }
 
+  restartLevel() {
+    this.scene.start('Game', { level: this.levelKey })
+  }
+
+  nextLevel() {
+    const level = this.levelKey + 1
+    if (level <= window.NUM_LEVELS) {
+      this.scene.start('Game', { level })
+    } else {
+      this.scene.start('Menu')
+    }
+  }
+  prevLevel() {
+    const level = this.levelKey - 1
+    if (level > 0) {
+      this.scene.start('Game', { level })
+    } else {
+      this.scene.start('Menu')
+    }
+  }
+
   playSound(key, _rate = [8, 10], opts = {}) {
     const rate = Phaser.Math.RND.between(..._rate) / 10
     this.sound.play(key, { rate, ...opts })
