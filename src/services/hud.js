@@ -13,18 +13,20 @@ export default class HudService {
     this.cols = []
     rows.forEach((item, i) =>
       this.rows.push(
-        this.addText(2, 2 + i * 8, item.join(' ')).setScrollFactor(0, 1),
+        this.addText(3, 2 + i * 8, item.join(' ')).setScrollFactor(0, 1),
       ),
     )
     cols.forEach((item, i) =>
-      this.cols.push(this.addText(3 + i * 8, 1, item).setScrollFactor(1, 0)),
+      this.cols.push(this.addText(3 + i * 8, 2, item).setScrollFactor(1, 0)),
     )
     this.toggle(false)
   }
 
   updateSolutionText = (rows, cols) => {
-    this.rows.forEach((t, i) => t.setAlpha(rows[i] ? 0.3 : 1))
-    this.cols.forEach((t, i) => t.setAlpha(cols[i] ? 0.3 : 1))
+    this.rows.forEach((t, i) => t.setTint(rows[i] ? 0xffffff : 0xff0000))
+    this.cols.forEach((t, i) => t.setTint(cols[i] ? 0xffffff : 0xff0000))
+    this.rows.forEach((t, i) => t.setAlpha(rows[i] ? 0.6 : 1))
+    this.cols.forEach((t, i) => t.setAlpha(cols[i] ? 0.6 : 1))
   }
 
   toggle = (playSound = true) => {
