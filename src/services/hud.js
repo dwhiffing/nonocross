@@ -29,7 +29,6 @@ export default class HudService {
       )
       this.cols.push(colArr)
     })
-    console.log(this.rows, this.cols)
     this.toggle(false)
   }
 

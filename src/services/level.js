@@ -100,11 +100,11 @@ export default class LevelService {
     const cols = this.checkAxis('x')
     const rows = this.checkAxis('y')
 
-    const solvedCols = cols.map((col, i) =>
-      col.map((ci, j) => ci === this.colSolution[i][j]),
+    const solvedCols = this.colSolution.map((col, i) =>
+      col.map((ci, j) => ci === cols[i][j]),
     )
-    const solvedRows = rows.map((row, i) =>
-      row.map((ri, j) => ri === this.rowSolution[i][j]),
+    const solvedRows = this.rowSolution.map((row, i) =>
+      row.map((ri, j) => ri === rows[i][j]),
     )
 
     const isSolved =
