@@ -76,7 +76,7 @@ export const SHOOT = {
       const tx = Math.floor(target.x / 8) * 8
       const ty = Math.floor(target.y / 8) * 8
       const isLadder = object.objects.some(
-        (o) => o.x === tx && o.y === ty && o.type === 'ladder',
+        (o) => o.x === tx && o.y - 8 === ty && o.type === 'ladder',
       )
       if (
         tile ||
