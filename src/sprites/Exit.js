@@ -10,12 +10,17 @@ export class Exit extends Phaser.Physics.Arcade.Sprite {
     this.alpha = 0
   }
 
-  toggle(isSolved) {
+  toggle(isSolved, playSound = true) {
+    if (playSound) {
+      if (this.alpha !== (isSolved ? 1 : 0))
+        this.scene.playSound(isSolved ? 'win' : 'unwin')
+    }
     this.alpha = isSolved ? 1 : 0
   }
 
   overlap() {
     if (this.alpha < 1) return
+    this.scene.sound.play('complete', { volume: 0.5 })
     this.scene.nextLevel()
   }
 }

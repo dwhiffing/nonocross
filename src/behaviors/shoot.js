@@ -44,11 +44,12 @@ export const SHOOT = {
     ent.cursor = ent.scene.add.sprite(0, 0, 'tilemap', 32).setOrigin(0, 0)
 
     ent.shoot = () => {
-      if (!ent.canShoot || ent.inventory.length >= opts.maxSize) return
+      if (!ent.canShoot || ent.inventory.length >= opts.maxSize)
+        return ent.scene.playSound('blocked', [8, 10])
 
       const target = ent.getTargetTile()
       const tile = ground.getTileAtWorldXY(target.x, target.y)?.index
-      if (!tile || tile !== 17) return
+      if (!tile || tile !== 17) return ent.scene.playSound('blocked', [8, 10])
 
       ent.canShoot = false
       ent.scene.time.addEvent({
@@ -65,7 +66,8 @@ export const SHOOT = {
     }
 
     ent.place = () => {
-      if (!ent.canShoot || ent.inventory.length === 0) return
+      if (!ent.canShoot || ent.inventory.length === 0)
+        return ent.scene.playSound('blocked', [8, 10])
       const target = ent.getTargetTile()
       const tile = ground.getTileAtWorldXY(target.x, target.y)?.index
       const { width, height } = ent.scene.level
@@ -80,7 +82,7 @@ export const SHOOT = {
         target.y < 0 ||
         isLadder
       )
-        return
+        return ent.scene.playSound('blocked', [8, 10])
 
       ent.canShoot = false
       ent.scene.time.addEvent({
@@ -92,7 +94,7 @@ export const SHOOT = {
       ground.putTileAtWorldXY(block, target.x, target.y, true)
 
       ent.scene.level.checkSolution()
-      ent.scene.playSound('shoot', [8, 10])
+      ent.scene.playSound('put', [8, 10])
     }
   },
 

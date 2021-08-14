@@ -46,7 +46,7 @@ export const JUMP = {
       if (opts.emitter) entity.jumpEmitter.explode(6)
 
       if (opts.playSound) {
-        entity.scene.playSound('hit2', [9, 10], { volume: 0.5 })
+        entity.scene.playSound('walk', [9, 10], { volume: 0.5 })
       }
     }
   },

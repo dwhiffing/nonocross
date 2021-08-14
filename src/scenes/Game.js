@@ -21,7 +21,7 @@ export default class extends Phaser.Scene {
     this.inputService = new InputService(this)
     this.hud = new HudService(this)
     this.hud.loadSolutionText(this.level.rowSolution, this.level.colSolution)
-    this.level.checkSolution()
+    this.level.checkSolution(false)
     this.history = { player: [] }
     this._time = 0
     this.physics.world.fixedDelta = true

@@ -96,7 +96,7 @@ export default class LevelService {
     )
   }
 
-  checkSolution() {
+  checkSolution(playSound) {
     const cols = this.checkAxis('x')
     const rows = this.checkAxis('y')
 
@@ -109,7 +109,7 @@ export default class LevelService {
 
     const isSolved =
       solvedCols.every((b) => !!b) && solvedRows.every((b) => !!b)
-    this.exits.children.entries.forEach((e) => e.toggle(isSolved))
+    this.exits.children.entries.forEach((e) => e.toggle(isSolved, playSound))
 
     this.scene.hud.updateSolutionText(solvedRows, solvedCols)
   }

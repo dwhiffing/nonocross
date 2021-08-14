@@ -7,7 +7,7 @@ export const WALK = {
   $create: function (entity, opts) {
     const playWalkSound = () => {
       if (!opts.sound) return
-      entity.scene.playSound('hit2', [3, 6], { volume: 0.2 })
+      entity.scene.playSound('walk', [3, 6], { volume: 0.2 })
     }
 
     if (opts.emitter)

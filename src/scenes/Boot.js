@@ -18,15 +18,17 @@ export default class extends Phaser.Scene {
       this.load.tilemapTiledJSON(`map${i}`, `assets/maps/map${i}.json`)
     }
 
-    this.load.audio('upgrade', 'assets/audio/upgrade.mp3', { instances: 3 })
     this.load.audio('music1', 'assets/audio/menu-music.mp3')
     this.load.audio('music2', 'assets/audio/game-music1.mp3')
     this.load.audio('music3', 'assets/audio/game-music2.mp3')
-    this.load.audio('pickup', 'assets/audio/pickup.mp3', { instances: 3 })
-    this.load.audio('enemyDead', 'assets/audio/enemyDead.mp3', { instances: 3 })
-    this.load.audio('hit2', 'assets/audio/hit2.mp3', { instances: 3 })
-    this.load.audio('hit', 'assets/audio/hit1.mp3', { instances: 3 })
+
+    this.load.audio('unwin', 'assets/audio/unwin.mp3', { instances: 1 })
+    this.load.audio('win', 'assets/audio/win.mp3', { instances: 1 })
+    this.load.audio('complete', 'assets/audio/complete.mp3', { instances: 1 })
+    this.load.audio('blocked', 'assets/audio/blocked.mp3', { instances: 3 })
+    this.load.audio('walk', 'assets/audio/walk.mp3', { instances: 3 })
     this.load.audio('shoot', 'assets/audio/shoot.mp3', { instances: 3 })
+    this.load.audio('put', 'assets/audio/put.mp3', { instances: 3 })
     this.load.audio('jump', 'assets/audio/jump.mp3', { instances: 1 })
 
     this.load.image('background', 'assets/images/background.png')
