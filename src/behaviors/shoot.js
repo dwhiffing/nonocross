@@ -3,7 +3,7 @@ export const SHOOT = {
   options: {
     poolSize: 10,
     delay: 200,
-    maxSize: 15,
+    maxSize: 8,
   },
 
   $create: function (ent, opts) {
@@ -18,7 +18,9 @@ export const SHOOT = {
     ent.updateInventory = () => {
       ent.invGraphics.clear()
       ent.inventory.forEach((a, i) => {
-        ent.invGraphics.fillStyle(0xa6ca38, 1)
+        const color =
+          ent.inventory.length === opts.maxSize ? 0xff0000 : 0xa6ca38
+        ent.invGraphics.fillStyle(color, 1)
         ent.invGraphics.fillRect(0, i * -2, 1, 1)
       })
     }
@@ -32,7 +34,7 @@ export const SHOOT = {
     ent.getTargetTile = () => {
       const { up, down } = ent.scene?.inputService?.direction || {}
       let y = ent.y
-      let x = ent.x + (ent.pointLeft ? -2 : 2)
+      let x = ent.x + (ent.pointLeft ? -3 : 3)
       if (!up && !down) {
         x = ent.x + (ent.pointLeft ? -8 : 8)
       }
@@ -73,7 +75,9 @@ export const SHOOT = {
       const { width, height } = ent.scene.level
       const tx = Math.floor(target.x / 8) * 8
       const ty = Math.floor(target.y / 8) * 8
-      const isLadder = object.objects.some((o) => o.x === tx && o.y === ty)
+      const isLadder = object.objects.some(
+        (o) => o.x === tx && o.y === ty && o.type === 'ladder',
+      )
       if (
         tile ||
         target.x > width ||
@@ -103,7 +107,7 @@ export const SHOOT = {
       Math.floor(ent.x) + (ent.flipX ? -1 : 1),
       Math.floor(ent.y) - 7,
     )
-    ent.invGraphics.setAlpha(ent.onLadder ? 0 : 1)
+    // ent.invGraphics.setAlpha(ent.onLadder ? 0 : 1)
 
     const target = ent.getTargetTile()
     ent.cursor.setPosition(
