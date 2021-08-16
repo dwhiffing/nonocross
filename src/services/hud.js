@@ -36,13 +36,13 @@ export default class HudService {
     this.rows.forEach((row, i) => {
       row.forEach((item, j) => {
         item.setTint(rows[i][j] ? 0xffffff : 0xff0000)
-        item.setAlpha(rows[i][j] ? 0.6 : 1)
+        item.setAlpha(rows[i][j] ? 0.4 : 1)
       })
     })
     this.cols.forEach((col, i) => {
       col.forEach((item, j) => {
         item.setTint(cols[i][j] ? 0xffffff : 0xff0000)
-        item.setAlpha(cols[i][j] ? 0.6 : 1)
+        item.setAlpha(cols[i][j] ? 0.4 : 1)
       })
     })
   }
